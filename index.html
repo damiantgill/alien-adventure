@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alien Adventure</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0d0d1a;
+    overflow: hidden;
+  }
+  svg {
+    max-width: 100vw;
+    max-height: 100vh;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  #helmet-off { cursor: grab; }
+  #helmet-off.dragging { cursor: grabbing; opacity: 0.8; }
+  #alien.draggable { cursor: grab; }
+  #alien.draggable.dragging { cursor: grabbing; opacity: 0.8; }
+  #planet.clickable { cursor: pointer; }
+</style>
+</head>
+<body>
+
+<svg width="877" height="728" viewBox="0 0 877 728" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="877" height="728" fill="#1E1E1E"/>
+<g id="alien-adventure">
+<rect width="877" height="728" fill="white"/>
+<g id="planet">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M672.765 122.19C729.059 122.19 774.694 167.825 774.694 224.119C774.694 280.413 729.059 326.048 672.765 326.048C616.471 326.048 570.836 280.413 570.836 224.119C570.836 167.825 616.471 122.19 672.765 122.19Z" fill="#99FFFF" fill-opacity="0.301961"/>
+<path id="Vector_2" fill-rule="evenodd" clip-rule="evenodd" d="M672.765 129.662C724.933 129.662 767.222 171.951 767.222 224.119C767.222 276.287 724.933 318.577 672.765 318.577C620.597 318.577 578.307 276.287 578.307 224.119C578.307 171.951 620.597 129.662 672.765 129.662Z" fill="#99FFFF" fill-opacity="0.8"/>
+<path id="Vector_3" d="M672.765 313.04C721.874 313.04 761.686 273.229 761.686 224.119C761.686 175.009 721.874 135.198 672.765 135.198C623.655 135.198 583.844 175.009 583.844 224.119C583.844 273.229 623.655 313.04 672.765 313.04Z" fill="#00CCFF"/>
+<path id="Vector_4" fill-rule="evenodd" clip-rule="evenodd" d="M716.612 301.491C703.672 308.84 688.71 313.041 672.766 313.041C658.331 313.041 644.701 309.598 632.647 303.493C641.991 298.286 654.83 294.664 666.347 293.88C684.784 292.626 699.834 298.647 713.191 300.967C714.343 301.167 715.481 301.339 716.613 301.49L716.612 301.491ZM756.339 254.557C752.274 265.715 746.036 275.826 738.141 284.387C729.863 282.095 720.955 279.483 712.635 277.728C692.129 273.401 675.198 274.279 660.038 275.119C644.879 275.96 631.49 276.761 618.824 282.531C615.857 283.881 612.931 285.505 610.069 287.173C601.428 278.582 594.543 268.228 590 256.693C600.853 250.138 615.707 245.533 629.484 244.492C650.241 242.924 668.552 249.446 683.602 248.944C698.652 248.442 710.442 240.917 723.547 240.792C734.742 240.684 746.897 245.978 756.34 254.558L756.339 254.557ZM754.223 188.42C759.019 199.348 761.687 211.421 761.687 224.12C761.687 225.599 761.648 227.069 761.578 228.531C744.652 226.438 727.868 219.151 712.916 218.582C695.859 217.932 681.186 226.025 664.881 229.122C648.577 232.22 630.642 230.321 610.324 231.62C601.71 232.171 592.667 233.296 584.406 234.105C584.04 230.826 583.845 227.495 583.845 224.119C583.845 213.178 585.826 202.699 589.441 193.018C596.995 190.559 604.926 189.367 612.331 190.105C628.887 191.753 642.807 203.044 653.656 202.944C664.505 202.844 672.281 191.355 683.443 183.811C694.605 176.267 709.153 172.671 718.999 175.419C728.844 178.166 733.986 187.258 747.28 188.408C749.406 188.592 751.741 188.571 754.223 188.42ZM672.766 135.198C691.57 135.198 709.007 141.04 723.372 151.001C722.861 151.177 722.355 151.347 721.853 151.51C705.298 156.904 693.635 155.524 680.277 157.844C666.92 160.164 651.869 166.184 633.433 164.93C626.045 164.427 618.113 162.755 610.908 160.247C626.913 144.744 648.723 135.198 672.765 135.198H672.766Z" fill="#66FFCC" fill-opacity="0.501961"/>
+</g>
+<g id="ufo">
+<g id="pilot">
+<path id="Vector_5" d="M511.174 566.434H380.959V586.786H511.174V566.434Z" fill="#33CC99"/>
+<path id="Vector_6" d="M491.588 554.508H400.545V614.369H491.588V554.508Z" fill="#33CC99"/>
+<path id="Vector_7" d="M446.066 589.313C465.289 589.313 480.871 573.73 480.871 554.508C480.871 535.285 465.289 519.703 446.066 519.703C426.844 519.703 411.262 535.285 411.262 554.508C411.262 573.73 426.844 589.313 446.066 589.313Z" fill="#33CC99"/>
+<path id="Vector_8" d="M446.066 575.587C457.708 575.587 467.146 566.149 467.146 554.508C467.146 542.866 457.708 533.428 446.066 533.428C434.425 533.428 424.987 542.866 424.987 554.508C424.987 566.149 434.425 575.587 446.066 575.587Z" fill="#FFCC00"/>
+<path id="Vector_9" d="M446.066 561.419C449.884 561.419 452.978 558.325 452.978 554.508C452.978 550.69 449.884 547.596 446.066 547.596C442.249 547.596 439.155 550.69 439.155 554.508C439.155 558.325 442.249 561.419 446.066 561.419Z" fill="black" stroke="#373435" stroke-width="0.666667" stroke-miterlimit="2.61313"/>
+<path id="Vector_10" d="M394.221 586.786H386.922V636.274H394.221V586.786Z" fill="#333300"/>
+<g id="Group">
+<path id="Vector_11" fill-rule="evenodd" clip-rule="evenodd" d="M450.957 614.37H469.558V673.095H460.257C455.143 673.095 450.958 668.91 450.958 663.795V614.37H450.957Z" fill="#333300"/>
+<path id="Vector_12" fill-rule="evenodd" clip-rule="evenodd" d="M441.176 614.37H422.575V673.095H431.875C436.99 673.095 441.175 668.91 441.175 663.795V614.37H441.176Z" fill="#333300"/>
+</g>
+<path id="Vector_13" d="M390.571 637.005C394.208 637.005 397.157 634.056 397.157 630.419C397.157 626.782 394.208 623.834 390.571 623.834C386.934 623.834 383.986 626.782 383.986 630.419C383.986 634.056 386.934 637.005 390.571 637.005Z" fill="#333300"/>
+<path id="Vector_14" fill-rule="evenodd" clip-rule="evenodd" d="M390.571 639.468L384.173 645.866C382.477 644.169 381.523 641.867 381.523 639.468C381.523 634.47 385.573 630.419 390.571 630.419C395.569 630.419 399.62 634.47 399.62 639.468C399.62 641.867 398.667 644.169 396.97 645.866L390.571 639.468Z" fill="#66FFCC"/>
+<path id="Vector_15" d="M390.571 628.05C393.562 628.05 395.987 625.626 395.987 622.635C395.987 619.644 393.562 617.219 390.571 617.219C387.58 617.219 385.156 619.644 385.156 622.635C385.156 625.626 387.58 628.05 390.571 628.05Z" fill="#333300"/>
+<path id="Vector_16" d="M504.562 586.786H497.264V636.274H504.562V586.786Z" fill="#333300"/>
+<path id="Vector_17" d="M500.913 637.005C504.55 637.005 507.498 634.056 507.498 630.419C507.498 626.782 504.55 623.834 500.913 623.834C497.276 623.834 494.328 626.782 494.328 630.419C494.328 634.056 497.276 637.005 500.913 637.005Z" fill="#333300"/>
+<path id="Vector_18" fill-rule="evenodd" clip-rule="evenodd" d="M500.913 639.468L494.515 645.866C492.817 644.169 491.864 641.867 491.864 639.468C491.864 634.47 495.915 630.419 500.913 630.419C505.91 630.419 509.962 634.47 509.962 639.468C509.962 641.867 509.009 644.169 507.311 645.866L500.913 639.468Z" fill="#66FFCC"/>
+<path id="Vector_19" d="M500.913 628.05C503.904 628.05 506.329 625.626 506.329 622.635C506.329 619.644 503.904 617.219 500.913 617.219C497.922 617.219 495.497 619.644 495.497 622.635C495.497 625.626 497.922 628.05 500.913 628.05Z" fill="#333300"/>
+<path id="Vector_20" d="M383.989 566.434H380.959V586.786H383.989V566.434Z" fill="#FFCC00"/>
+<path id="Vector_21" d="M511.175 566.434H508.145V586.786H511.175V566.434Z" fill="#FFCC00"/>
+<path id="Vector_22" fill-rule="evenodd" clip-rule="evenodd" d="M423.281 673.095H404.728C404.728 662.891 413.077 654.542 423.281 654.542V673.095Z" fill="#333300"/>
+<path id="Vector_23" fill-rule="evenodd" clip-rule="evenodd" d="M468.706 673.095H487.259C487.259 662.891 478.91 654.542 468.706 654.542V673.095Z" fill="#333300"/>
+<path id="Vector_24" fill-rule="evenodd" clip-rule="evenodd" d="M446.066 513.012C468.984 513.012 487.562 531.59 487.562 554.508C487.562 577.425 468.984 596.005 446.066 596.005C423.149 596.005 404.57 577.426 404.57 554.508C404.57 531.59 423.149 513.012 446.066 513.012Z" fill="#00CCFF" fill-opacity="0.301961"/>
+<path id="Vector_25" fill-rule="evenodd" clip-rule="evenodd" d="M437.019 547.02C441.601 547.02 445.314 550.734 445.314 555.316C445.314 559.898 441.601 563.611 437.019 563.611C432.436 563.611 428.723 559.897 428.723 555.316C428.723 550.733 432.437 547.02 437.019 547.02Z" fill="white" fill-opacity="0.501961"/>
+<path id="Vector_26" fill-rule="evenodd" clip-rule="evenodd" d="M446.066 513.012C463.988 513.012 479.255 524.373 485.061 540.287H407.072C412.877 524.373 428.146 513.012 446.067 513.012H446.066Z" fill="#33CC99" stroke="#33CC99" stroke-width="4" stroke-miterlimit="2.61313"/>
+<path id="Vector_27" d="M446.066 513.012V497.924" stroke="#33CC99" stroke-width="4" stroke-miterlimit="2.61313"/>
+<path id="Vector_28" d="M446.066 502.403C448.54 502.403 450.545 500.398 450.545 497.924C450.545 495.451 448.54 493.446 446.066 493.446C443.593 493.446 441.588 495.451 441.588 497.924C441.588 500.398 443.593 502.403 446.066 502.403Z" fill="#33CC99"/>
+</g>
+<g id="_2083371912144">
+<path id="Vector_29" fill-rule="evenodd" clip-rule="evenodd" d="M444.58 482C502.676 482 549.773 529.097 549.773 587.193C549.773 645.29 502.676 692.386 444.58 692.386C386.483 692.386 339.386 645.29 339.386 587.193C339.386 529.097 386.483 482 444.58 482Z" fill="#99FFFF" fill-opacity="0.501961"/>
+<path id="Vector_30" d="M444.58 695.552C596.778 695.552 720.159 674.808 720.159 649.219C720.159 623.629 596.778 602.885 444.58 602.885C292.381 602.885 169 623.629 169 649.219C169 674.808 292.381 695.552 444.58 695.552Z" fill="#33CC99"/>
+<path id="Vector_31" fill-rule="evenodd" clip-rule="evenodd" d="M720.159 649.219C720.159 674.808 596.778 695.552 444.58 695.552C292.381 695.552 169 674.808 169 649.219H720.16H720.159Z" fill="#333300"/>
+<path id="Vector_32" d="M439.425 655.728C443.02 655.728 445.934 652.814 445.934 649.219C445.934 645.624 443.02 642.709 439.425 642.709C435.83 642.709 432.916 645.624 432.916 649.219C432.916 652.814 435.83 655.728 439.425 655.728Z" fill="#FFCC00"/>
+<path id="Vector_33" d="M508.299 655.728C511.894 655.728 514.808 652.814 514.808 649.219C514.808 645.624 511.894 642.709 508.299 642.709C504.704 642.709 501.79 645.624 501.79 649.219C501.79 652.814 504.704 655.728 508.299 655.728Z" fill="#FFCC00"/>
+<path id="Vector_34" d="M373.456 655.728C377.051 655.728 379.966 652.814 379.966 649.219C379.966 645.624 377.051 642.709 373.456 642.709C369.862 642.709 366.947 645.624 366.947 649.219C366.947 652.814 369.862 655.728 373.456 655.728Z" fill="#FFCC00"/>
+<path id="Vector_35" d="M564.406 655.728C568.001 655.728 570.915 652.814 570.915 649.219C570.915 645.624 568.001 642.709 564.406 642.709C560.811 642.709 557.897 645.624 557.897 649.219C557.897 652.814 560.811 655.728 564.406 655.728Z" fill="#FFCC00"/>
+<path id="Vector_36" d="M314.249 655.728C317.844 655.728 320.758 652.814 320.758 649.219C320.758 645.624 317.844 642.709 314.249 642.709C310.654 642.709 307.74 645.624 307.74 649.219C307.74 652.814 310.654 655.728 314.249 655.728Z" fill="#FFCC00"/>
+</g>
+</g>
+<g id="alien">
+<g id="Group_2">
+<path id="Vector_37" d="M271.119 322.96H91V351.112H271.119V322.96Z" fill="#33CC99"/>
+<path id="Vector_38" d="M244.027 306.464H118.093V389.267H244.027V306.464Z" fill="#33CC99"/>
+<path id="Vector_39" d="M181.06 354.607C207.649 354.607 229.203 333.052 229.203 306.463C229.203 279.875 207.649 258.32 181.06 258.32C154.471 258.32 132.917 279.875 132.917 306.463C132.917 333.052 154.471 354.607 181.06 354.607Z" fill="#33CC99"/>
+<path id="Vector_40" d="M181.06 335.622C197.164 335.622 210.219 322.567 210.219 306.463C210.219 290.36 197.164 277.305 181.06 277.305C164.956 277.305 151.901 290.36 151.901 306.463C151.901 322.567 164.956 335.622 181.06 335.622Z" fill="#FFCC00"/>
+<path id="Vector_41" d="M181.06 316.024C186.34 316.024 190.621 311.744 190.621 306.464C190.621 301.183 186.34 296.903 181.06 296.903C175.78 296.903 171.499 301.183 171.499 306.464C171.499 311.744 175.78 316.024 181.06 316.024Z" fill="black" stroke="#373435" stroke-width="0.666667" stroke-miterlimit="2.61313"/>
+<path id="Vector_42" d="M109.346 351.112H99.249V419.566H109.346V351.112Z" fill="#333300"/>
+<g id="Group_3">
+<path id="Vector_43" fill-rule="evenodd" clip-rule="evenodd" d="M187.824 389.267H213.554V470.498H200.689C193.614 470.498 187.824 464.71 187.824 457.633V389.267Z" fill="#333300"/>
+<path id="Vector_44" fill-rule="evenodd" clip-rule="evenodd" d="M174.295 389.267H148.565V470.498H161.43C168.505 470.498 174.295 464.71 174.295 457.633V389.267Z" fill="#333300"/>
+</g>
+<path id="Vector_45" d="M104.298 420.575C109.328 420.575 113.407 416.497 113.407 411.467C113.407 406.436 109.328 402.358 104.298 402.358C99.2672 402.358 95.189 406.436 95.189 411.467C95.189 416.497 99.2672 420.575 104.298 420.575Z" fill="#333300"/>
+<path id="Vector_46" fill-rule="evenodd" clip-rule="evenodd" d="M104.298 423.983L95.4472 432.834C93.0996 430.486 91.7815 427.303 91.7815 423.983C91.7815 417.069 97.3852 411.467 104.298 411.467C111.21 411.467 116.814 417.07 116.814 423.983C116.814 427.302 115.495 430.486 113.148 432.834L104.298 423.983Z" fill="#66FFCC"/>
+<path id="Vector_47" d="M104.298 408.191C108.435 408.191 111.79 404.837 111.79 400.699C111.79 396.562 108.435 393.207 104.298 393.207C100.16 393.207 96.8059 396.562 96.8059 400.699C96.8059 404.837 100.16 408.191 104.298 408.191Z" fill="#333300"/>
+<path id="Vector_48" d="M261.974 351.112H251.877V419.566H261.974V351.112Z" fill="#333300"/>
+<path id="Vector_49" d="M256.925 420.575C261.956 420.575 266.034 416.497 266.034 411.467C266.034 406.436 261.956 402.358 256.925 402.358C251.894 402.358 247.816 406.436 247.816 411.467C247.816 416.497 251.894 420.575 256.925 420.575Z" fill="#333300"/>
+<path id="Vector_50" fill-rule="evenodd" clip-rule="evenodd" d="M256.925 423.983L248.074 432.834C245.727 430.486 244.409 427.303 244.409 423.983C244.409 417.069 250.012 411.467 256.925 411.467C263.838 411.467 269.441 417.07 269.441 423.983C269.441 427.302 268.122 430.486 265.776 432.834L256.925 423.983Z" fill="#66FFCC"/>
+<path id="Vector_51" d="M256.925 408.191C261.063 408.191 264.417 404.837 264.417 400.699C264.417 396.562 261.063 393.207 256.925 393.207C252.787 393.207 249.433 396.562 249.433 400.699C249.433 404.837 252.787 408.191 256.925 408.191Z" fill="#333300"/>
+<path id="Vector_52" d="M95.1911 322.96H91V351.112H95.1911V322.96Z" fill="#FFCC00"/>
+<path id="Vector_53" d="M271.119 322.96H266.928V351.112H271.119V322.96Z" fill="#FFCC00"/>
+<path id="Vector_54" fill-rule="evenodd" clip-rule="evenodd" d="M149.541 470.498H123.877C123.877 456.382 135.426 444.835 149.541 444.835V470.498Z" fill="#333300"/>
+<path id="Vector_55" fill-rule="evenodd" clip-rule="evenodd" d="M212.376 470.498H238.04C238.04 456.382 226.491 444.835 212.376 444.835V470.498Z" fill="#333300"/>
+</g>
+<g id="helmet-on">
+<path id="Vector_56" fill-rule="evenodd" clip-rule="evenodd" d="M181.06 249.064C212.761 249.064 238.459 274.762 238.459 306.462C238.459 338.164 212.761 363.862 181.06 363.862C149.359 363.862 123.661 338.164 123.661 306.462C123.661 274.762 149.359 249.064 181.06 249.064Z" fill="#00CCFF" fill-opacity="0.301961"/>
+<path id="Vector_57" fill-rule="evenodd" clip-rule="evenodd" d="M168.545 296.106C174.882 296.106 180.02 301.243 180.02 307.581C180.02 313.919 174.883 319.056 168.545 319.056C162.207 319.056 157.07 313.919 157.07 307.581C157.07 301.244 162.207 296.106 168.545 296.106Z" fill="white" fill-opacity="0.501961"/>
+<path id="Vector_58" fill-rule="evenodd" clip-rule="evenodd" d="M181.06 249.064C205.851 249.064 226.969 264.78 234.999 286.792H127.121C135.15 264.781 156.269 249.064 181.06 249.064Z" fill="#33CC99" stroke="#33CC99" stroke-width="4" stroke-miterlimit="2.61313"/>
+<path id="Vector_59" d="M181.06 249.064V228.195" stroke="#33CC99" stroke-width="4" stroke-miterlimit="2.61313"/>
+<path id="Vector_60" d="M181.06 234.39C184.482 234.39 187.255 231.617 187.255 228.195C187.255 224.774 184.482 222 181.06 222C177.639 222 174.865 224.774 174.865 228.195C174.865 231.617 177.639 234.39 181.06 234.39Z" fill="#33CC99"/>
+</g>
+</g>
+<g id="helmet-off">
+<path id="Vector_61" fill-rule="evenodd" clip-rule="evenodd" d="M181.06 59.0641C212.761 59.0641 238.46 84.7623 238.46 116.464C238.46 148.165 212.761 173.863 181.06 173.863C149.359 173.863 123.661 148.165 123.661 116.464C123.661 84.7623 149.359 59.0641 181.06 59.0641Z" fill="#00CCFF" fill-opacity="0.301961"/>
+<path id="Vector_62" fill-rule="evenodd" clip-rule="evenodd" d="M168.545 106.107C174.882 106.107 180.02 111.244 180.02 117.581C180.02 123.919 174.883 129.057 168.545 129.057C162.207 129.057 157.07 123.92 157.07 117.581C157.07 111.244 162.207 106.107 168.545 106.107Z" fill="white" fill-opacity="0.501961"/>
+<path id="Vector_63" fill-rule="evenodd" clip-rule="evenodd" d="M181.06 59.0641C205.851 59.0641 226.969 74.7806 234.999 96.7918H127.121C135.15 74.7806 156.269 59.0641 181.06 59.0641Z" fill="#33CC99" stroke="#33CC99" stroke-width="4" stroke-miterlimit="2.61313"/>
+<path id="Vector_64" d="M181.06 59.0641V38.1952" stroke="#33CC99" stroke-width="4" stroke-miterlimit="2.61313"/>
+<path id="Vector_65" d="M181.06 44.3903C184.482 44.3903 187.255 41.6166 187.255 38.1952C187.255 34.7737 184.482 32 181.06 32C177.639 32 174.865 34.7737 174.865 38.1952C174.865 41.6166 177.639 44.3903 181.06 44.3903Z" fill="#33CC99"/>
+</g>
+</g>
+</svg>
+
+<script>
+(function () {
+  const svg = document.querySelector('svg');
+  const helmetOff = document.getElementById('helmet-off');
+  const helmetOn = document.getElementById('helmet-on');
+  const alien = document.getElementById('alien');
+  const ufo = document.getElementById('ufo');
+  const pilot = document.getElementById('pilot');
+  const planet = document.getElementById('planet');
+
+  // --- Initial State ---
+  helmetOn.style.display = 'none';
+  ufo.style.display = 'none';
+  pilot.style.display = 'none';
+
+  // --- Game Phase ---
+  // 'helmet' : drag helmet-off onto alien
+  // 'board'  : drag alien onto ufo
+  // 'fly'    : click planet to launch
+  // 'done'   : animation finished
+  let phase = 'helmet';
+
+  // --- Drag State ---
+  let dragEl = null;
+  let dragStart = null;   // SVG-space start point
+  let dragOffset = { x: 0, y: 0 };
+
+  // Convert screen coords to SVG-space coords
+  function toSVG(clientX, clientY) {
+    const pt = svg.createSVGPoint();
+    pt.x = clientX;
+    pt.y = clientY;
+    return pt.matrixTransform(svg.getScreenCTM().inverse());
+  }
+
+  // Hit test: is the centre of el (screen-space) inside target's bbox?
+  function isOver(el, target) {
+    const r1 = el.getBoundingClientRect();
+    const r2 = target.getBoundingClientRect();
+    const cx = r1.left + r1.width / 2;
+    const cy = r1.top + r1.height / 2;
+    return cx >= r2.left && cx <= r2.right && cy >= r2.top && cy <= r2.bottom;
+  }
+
+  // --- Pointer handlers ---
+  svg.addEventListener('pointerdown', function (e) {
+    let target = null;
+    if (phase === 'helmet' && e.target.closest('#helmet-off')) {
+      target = helmetOff;
+    } else if (phase === 'board' && e.target.closest('#alien')) {
+      target = alien;
+    }
+    if (!target) return;
+
+    dragEl = target;
+    dragStart = toSVG(e.clientX, e.clientY);
+    dragOffset = { x: 0, y: 0 };
+
+    // Bring to front while dragging
+    dragEl.parentNode.appendChild(dragEl);
+    dragEl.classList.add('dragging');
+    if (dragEl === alien) dragEl.classList.add('draggable');
+
+    svg.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+
+  svg.addEventListener('pointermove', function (e) {
+    if (!dragEl) return;
+    var pt = toSVG(e.clientX, e.clientY);
+    dragOffset.x = pt.x - dragStart.x;
+    dragOffset.y = pt.y - dragStart.y;
+    dragEl.setAttribute('transform', 'translate(' + dragOffset.x + ',' + dragOffset.y + ')');
+    e.preventDefault();
+  });
+
+  svg.addEventListener('pointerup', function (e) {
+    if (!dragEl) return;
+    var el = dragEl;
+    dragEl = null;
+    el.classList.remove('dragging');
+
+    if (phase === 'helmet' && el === helmetOff) {
+      if (isOver(el, alien)) {
+        // Success – place helmet on alien, reveal UFO
+        helmetOff.style.display = 'none';
+        helmetOn.style.display = '';
+        ufo.style.display = '';
+        // pilot stays hidden inside ufo
+        phase = 'board';
+        alien.classList.add('draggable');
+      }
+      // Reset transform whether success or not (element is hidden on success)
+      el.setAttribute('transform', '');
+    } else if (phase === 'board' && el === alien) {
+      if (isOver(el, ufo)) {
+        // Success – alien boards the UFO
+        alien.style.display = 'none';
+        pilot.style.display = '';
+        phase = 'fly';
+        planet.classList.add('clickable');
+      } else {
+        el.setAttribute('transform', '');
+      }
+      el.classList.remove('draggable');
+    }
+    e.preventDefault();
+  });
+
+  // Cancel drag on pointer leaving the window
+  svg.addEventListener('pointercancel', function () {
+    if (dragEl) {
+      dragEl.classList.remove('dragging', 'draggable');
+      dragEl.setAttribute('transform', '');
+      dragEl = null;
+    }
+  });
+
+  // --- Planet click: fly UFO to planet and shrink to zero ---
+  planet.addEventListener('click', function () {
+    if (phase !== 'fly') return;
+    phase = 'done';
+    planet.classList.remove('clickable');
+
+    // Compute centres in SVG space
+    var ub = ufo.getBBox();
+    var ucx = ub.x + ub.width / 2;
+    var ucy = ub.y + ub.height / 2;
+
+    var pb = planet.getBBox();
+    var pcx = pb.x + pb.width / 2;
+    var pcy = pb.y + pb.height / 2;
+
+    var dx = pcx - ucx;
+    var dy = pcy - ucy;
+
+    var duration = 2500; // ms
+    var startTime = null;
+
+    function tick(now) {
+      if (!startTime) startTime = now;
+      var raw = Math.min((now - startTime) / duration, 1);
+
+      // Ease-in-out quad
+      var t = raw < 0.5
+        ? 2 * raw * raw
+        : 1 - Math.pow(-2 * raw + 2, 2) / 2;
+
+      var s = 1 - t; // scale: 1 -> 0
+
+      // translate so the centre of the ufo group arrives at the planet centre,
+      // scaling around the ufo's own centre
+      ufo.setAttribute('transform',
+        'translate(' + (ucx + dx * t) + ',' + (ucy + dy * t) + ') ' +
+        'scale(' + s + ') ' +
+        'translate(' + (-ucx) + ',' + (-ucy) + ')'
+      );
+
+      if (raw < 1) {
+        requestAnimationFrame(tick);
+      }
+    }
+
+    requestAnimationFrame(tick);
+  });
+})();
+</script>
+</body>
+</html>
